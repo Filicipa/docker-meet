@@ -1,0 +1,17 @@
+services:
+  react-node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: react-node
+    container_name: react-node
+    ports:
+      - 3001:3000
+  react-nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    image: react-nginx
+    container_name: react-nginx
+    ports:
+      - 3002:80

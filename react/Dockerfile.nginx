@@ -1,0 +1,9 @@
+FROM node:16.10.0-alpine AS builder
+WORKDIR /app
+COPY ./ ./
+RUN npm ci
+RUN npm run build
+
+FROM nginx:alpine AS runner
+WORKDIR /usr/share/nginx/html
+COPY --from=builder /app/build ./

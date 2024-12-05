@@ -1,0 +1,8 @@
+services:
+  nginx-1:
+    image: nginx:alpine
+    container_name: nginx-1
+    volumes:
+      - ./nginx-0:/usr/share/nginx/html:ro
+    ports:
+      - 3000:80
